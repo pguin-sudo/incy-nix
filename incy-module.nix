@@ -23,7 +23,7 @@ in
   };
 
   config = lib.mkMerge [
-(lib.mkIf cfg.enable {
+    (lib.mkIf cfg.enable {
       environment.systemPackages = [ package ];
 
       # The JVM/AWT (Skiko) client is X11-based.
@@ -57,7 +57,10 @@ in
       networking.firewall.trustedInterfaces = [ "wwan99" ];
 
       # Routing via ip rule / ip route table needs nftables + iproute2.
-      environment.systemPackages = with pkgs; [ iproute2 nftables ];
+      environment.systemPackages = with pkgs; [
+        iproute2
+        nftables
+      ];
     })
     (lib.mkIf (cfg.enable && cfg.dns.enable) {
       # Helper prefers resolvectl (systemd-resolved) to avoid clobbering /etc/resolv.conf.

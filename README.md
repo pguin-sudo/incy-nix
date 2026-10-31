@@ -13,13 +13,13 @@ nix run github:f1v3nt5/incy-nix
 
 ## Flake outputs
 
-| Output | Description |
-| --- | --- |
-| `packages.x86_64-linux.incy` | INCY package (GUI + Xray + helper) |
-| `packages.x86_64-linux.default` | Same as above |
-| `apps.x86_64-linux.default` | Launches the INCY GUI |
-| `overlays.default` | Overlay providing `pkgs.incy` |
-| `nixosModules.default` | NixOS module with polkit/TUN/DNS support |
+| Output                          | Description                              |
+| ------------------------------- | ---------------------------------------- |
+| `packages.x86_64-linux.incy`    | INCY package (GUI + Xray + helper)       |
+| `packages.x86_64-linux.default` | Same as above                            |
+| `apps.x86_64-linux.default`     | Launches the INCY GUI                    |
+| `overlays.default`              | Overlay providing `pkgs.incy`            |
+| `nixosModules.default`          | NixOS module with polkit/TUN/DNS support |
 
 ## Installing on NixOS
 
@@ -40,13 +40,13 @@ nix run github:f1v3nt5/incy-nix
 
 ### Module options
 
-| Option | Default | Description |
-| --- | --- | --- |
-| `programs.incy.enable` | `false` | Enables the INCY GUI |
-| `programs.incy.package` | `incy` | Custom INCY package |
-| `programs.incy.polkit.enable` | `false` | Polkit + pkexec wrapper for the privileged helper |
-| `programs.incy.tun.enable` | `false` | TUN driver + `/dev/net/tun` + firewall trust |
-| `programs.incy.dns.enable` | `false` | Enables systemd-resolved for `resolvectl` DNS capture |
+| Option                        | Default | Description                                           |
+| ----------------------------- | ------- | ----------------------------------------------------- |
+| `programs.incy.enable`        | `false` | Enables the INCY GUI                                  |
+| `programs.incy.package`       | `incy`  | Custom INCY package                                   |
+| `programs.incy.polkit.enable` | `false` | Polkit + pkexec wrapper for the privileged helper     |
+| `programs.incy.tun.enable`    | `false` | TUN driver + `/dev/net/tun` + firewall trust          |
+| `programs.incy.dns.enable`    | `false` | Enables systemd-resolved for `resolvectl` DNS capture |
 
 ### Full privileged tunnel
 
@@ -60,6 +60,7 @@ programs.incy = {
 ```
 
 Enables:
+
 - `security.polkit` with the setuid `pkexec` wrapper (`/run/wrappers/bin/pkexec`, which the INCY GUI probes for).
 - The polkit action `cc.incy.vpn.run-helper` policy (shipped in the package).
 - A symlink `/usr/lib/incy/incy-helper-linux.sh` → the packaged helper.
