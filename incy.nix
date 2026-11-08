@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchurl {
     url = "https://github.com/INCY-DEV/incy-platforms/releases/download/desktop-v${version}/incy-linux-x64.pkg.tar.zst";
-    sha256 = "sha256-8RD1tgFzsn20XBwnGNmlErDR2QGhKtVbo7wNfAt0Mes=";
+    sha256 = "sha256-v+V1GBR7fywAKXUnuiwO35VuiGbN7HyTJbgNZE2w7NM=";
   };
 
   nativeBuildInputs = with pkgs; [
